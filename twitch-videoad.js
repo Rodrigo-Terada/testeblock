@@ -43,8 +43,11 @@ twitch-videoad.js text/javascript
                     return;
                 }
                 // Fetch worker code
-                const code = (new XMLHttpRequest()).open('GET', blobUrl, false),
-                      workerJS = code.send() || code.responseText;
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', blobUrl, false);
+                xhr.send();
+                const workerJS = xhr.responseText;
+
                 // Inject core functions without exposing tokens
                 const patched = `
                     ${processM3U8.toString()}

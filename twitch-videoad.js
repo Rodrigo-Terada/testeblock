@@ -1,3 +1,4 @@
+twitch-videoad.js text/javascript
 (function() {
     'use strict';
     // Only run on twitch.tv
